@@ -1,3 +1,5 @@
+// forked by Dmitriy Nyashkin
+
 // jQuery Slug Generation Plugin by Atratus (http://github.com/Atratus/jQuery-Slug-Generation-Plugin)
 
 // Improved from jQuery Slug Generation Plugin by Perry Trinier (perrytrinier@gmail.com). Licensed under the GPL: http://www.gnu.org/copyleft/gpl.html
@@ -11,7 +13,8 @@
 
 jQuery.fn.slug = function(options) {
 	var settings = {
-		slug: 'slug'
+		slug: 'slug',
+        separator: '-'
 	};
 	
 	if(options) {
@@ -110,7 +113,7 @@ jQuery.fn.slug = function(options) {
 	
 	downcode = function(slug) {
 		Downcoder.Initialize();
-		var downcoded =""
+		var downcoded = ""
 		var pieces = slug.match(Downcoder.regex);
 		if(pieces) {
 			for (var i = 0 ; i < pieces.length ; i++) {
@@ -133,9 +136,10 @@ jQuery.fn.slug = function(options) {
 		s = downcode($(this).val());
 		s = s.replace(/[^-\w\s]/g, '');
 		s = s.replace(/^\s+|\s+$/g, '');
-		s = s.replace(/[-\s]+/g, '_');
+		s = s.replace(/[-\s]+/g, settings.separator);
 		s = s.toLowerCase();
-		$('input#' + settings.slug).val(s);
+		
+		$(settings.slug).val(s);
 	}
 	
 	$(this).keyup(makeSlug);
