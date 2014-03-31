@@ -17,6 +17,6 @@ Improved from urlify.js from Django framework. BSD License: http://code.djangopr
 ## Usage:
 
     $(document).ready(function(){
-        $("#NewsTitleEn").slug({slug: '.NewsUrlEn'});
-        $("#NewsTitleFr").slug({slug: '#NewsUrlFr', separator: "_"});
+        $("#url_title").slug({slug: '.title'});
+        $("#url_title").slug({slug: '#title', separator: "_"});
     });
