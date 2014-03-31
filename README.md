@@ -17,6 +17,8 @@ Improved from urlify.js from Django framework. BSD License: http://code.djangopr
 ## Usage:
 
     $(document).ready(function(){
-        $("#url_title").slug({slug: '.title'});
-        $("#url_title").slug({slug: '#title', separator: "_"});
+
+        $("#title").slug({slug: '#url_title', separator: "_"});
+        $("#title").slug({slug: '#url_title'});
+        $(".title").slug({slug: '#translit_field'});
     });
